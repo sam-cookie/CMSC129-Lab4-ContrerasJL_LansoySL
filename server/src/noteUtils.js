@@ -6,9 +6,10 @@ const generateId = () =>
   Date.now().toString() + Math.random().toString(36).slice(2);
 
 function createNote(notes, title, body) {
-  if (!title || title.trim() === '') return null;
-  if (title.length > VALIDATION_RULES.titleMaxLength) return null;
-  const note = { id: generateId(), title, body, createdAt: new Date().toISOString() };
+  const trimmedTitle = title ? title.trim() : '';
+  if (!trimmedTitle) return null;
+  if (trimmedTitle.length > VALIDATION_RULES.titleMaxLength) return null;
+  const note = { id: generateId(), title: trimmedTitle, body, createdAt: new Date().toISOString() };
   notes.push(note);
   return note;
 }
@@ -18,11 +19,12 @@ function getNotes(notes) {
 }
 
 function updateNote(notes, id, title, body) {
-  if (!title || title.trim() === '') return null;
-  if (title.length > VALIDATION_RULES.titleMaxLength) return null;
+  const trimmedTitle = title ? title.trim() : '';
+  if (!trimmedTitle) return null;
+  if (trimmedTitle.length > VALIDATION_RULES.titleMaxLength) return null;
   const note = notes.find(n => n.id === id);
   if (!note) return null;
-  Object.assign(note, { title, body });
+  Object.assign(note, { title: trimmedTitle, body });
   return note;
 }
 
