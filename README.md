@@ -41,8 +41,8 @@ This is a simple note-taking web application built as a single-resource CRUD app
 - **Trigger:** Every push to `main`
 - **Pipeline:** Runs all unit, integration, and system tests automatically
 - **Screenshots:**
-  - Failing pipeline run (RED phase): _To be added_
-  - Passing pipeline run (GREEN phase): _To be added_
+  - Failing pipeline run (RED phase): ![Red Phase](docs/screenshots/red.png)
+  - Passing pipeline run (GREEN phase):  ![Green Phase](docs/screenshots/green.png)
 
 ## Testing Strategy
 
@@ -57,7 +57,7 @@ This is a simple note-taking web application built as a single-resource CRUD app
 ## Test Results
 
 ### Unit Tests
-> _To be implemented_
+![Unit Tests Passing](docs/screenshots/unit-test-pass.png)
 ### Integration Tests
 > _To be implemented_
 ### System Tests
