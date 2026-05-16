@@ -1,7 +1,9 @@
 # CMSC129-Lab4-ContrerasJL_LansoySL
+
 > Notes app by Contreras and Lansoy
 
 ## Live URL
+
 > _To be added after deployment_
 
 ---
@@ -22,16 +24,16 @@ This is a simple note-taking web application built as a single-resource CRUD app
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend | React (Vite) |
-| Backend | Node.js + Express |
-| Data Storage | In-memory array (server-side) |
-| Unit Testing | Jest |
-| Integration Testing | Jest + Supertest |
-| System / E2E Testing | Playwright |
-| CI/CD | GitHub Actions |
-| Deployment | Vercel (frontend) |
+| Layer                | Technology                    |
+| -------------------- | ----------------------------- |
+| Frontend             | React (Vite)                  |
+| Backend              | Node.js + Express             |
+| Data Storage         | In-memory array (server-side) |
+| Unit Testing         | Jest                          |
+| Integration Testing  | Jest + Supertest              |
+| System / E2E Testing | Playwright                    |
+| CI/CD                | GitHub Actions                |
+| Deployment           | Vercel (frontend)             |
 
 ---
 
@@ -42,7 +44,7 @@ This is a simple note-taking web application built as a single-resource CRUD app
 - **Pipeline:** Runs all unit, integration, and system tests automatically
 - **Screenshots:**
   - Failing pipeline run (RED phase): ![Red Phase](docs/screenshots/red.png)
-  - Passing pipeline run (GREEN phase):  ![Green Phase](docs/screenshots/green.png)
+  - Passing pipeline run (GREEN phase): ![Green Phase](docs/screenshots/green.png)
 
 ## Testing Strategy
 
@@ -50,54 +52,67 @@ This is a simple note-taking web application built as a single-resource CRUD app
 
 **Integration tests** will cover the full HTTP request-response cycle using Supertest. Specifically, a POST request to create a note and a GET request to retrieve all notes, making sure that it verifies correct status codes and response bodies.
 
-**System tests** will simulate real user journeys in a browser using Playwright. One test per user story: creating a note using the UI, viewing the notes list, and deleting a note. This verifies that  DOM reflects the expected state after each action.
+**System tests** will simulate real user journeys in a browser using Playwright. One test per user story: creating a note using the UI, viewing the notes list, and deleting a note. This verifies that DOM reflects the expected state after each action.
 
 ---
 
 ## Test Results
 
 ### Unit Tests
+
 ![Unit Tests Passing](docs/screenshots/unit-test-pass.png)
+
 ### Integration Tests
-> _To be implemented_
+
+![Integration Tests Passing](docs/screenshots/integration-test-pass.png)
+
 ### System Tests
+
 > _To be implemented_
+
 ## Setup Instructions
 
 ### Clone the repository
+
 ```bash
 git clone https://github.com/CMSC129-LABS/CMSC129-Lab4-ContrerasJL_LansoySLD
 cd CMSC129-Lab4-CMSC129-Lab4-ContrerasJL_LansoySLD
-``` 
+```
 
 ### Install frontend dependencies
+
 ```bash
 cd client
 npm install
-``` 
+```
 
-###  Install backend dependencies
+### Install backend dependencies
+
 ```bash
 cd ../server
 npm install
-``` 
+```
 
 ### Run the frontend (from /client)
+
 ```bash
 npm run dev
-``` 
+```
 
 ### Run the backend (from /server)
+
 ```bash
 node index.js
-``` 
+```
 
 ### Run unit + integration tests (from /server)
+
 ```bash
 npx jest
 ```
 
 ### Run system tests (from /client)
+
 ```bash
 npx playwright test
 ```
