@@ -16,10 +16,16 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install root dependencies
         run: npm install
+
+      - name: Install client dependencies
+        run: cd client && npm install
+
+      - name: Install server dependencies
+        run: cd server && npm install
 
       - name: Run unit tests
         run: npx jest tests/unit/ --passWithNoTests
@@ -29,3 +35,9 @@ jobs:
 
       - name: Run system tests
         run: npx jest tests/system/ --passWithNoTests
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run system tests
+        run: npx playwright test tests/system/
