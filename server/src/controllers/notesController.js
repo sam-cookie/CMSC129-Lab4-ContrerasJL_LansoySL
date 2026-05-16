@@ -3,7 +3,6 @@ const store = require('../store/notesStore');
 
 function createNoteHandler(req, res) {
   const { title, body } = req.body;
-  const notes = store.getAll();
   const note = createNote(store.getNotes(), title, body);
 
   if (!note) {
@@ -20,7 +19,6 @@ function getAllNotesHandler(req, res) {
 function updateNoteHandler(req, res) {
   const { id } = req.params;
   const { title, body } = req.body;
-  const notes = store.getAll();
 
   const updated = updateNote(store.getNotes(), id, title, body);
   if (!updated) {
@@ -32,7 +30,6 @@ function updateNoteHandler(req, res) {
 
 function deleteNoteHandler(req, res) {
   const { id } = req.params;
-  const notes = store.getAll();
 
   const deleted = deleteNote(store.getNotes(), id);
   if (!deleted) {
