@@ -1,17 +1,45 @@
-function createNote(req, res) {
-  res.status(501).json({ error: 'Not implemented yet' });
+const { createNote, getNotes, updateNote, deleteNote } = require('../noteUtils');
+const store = require('../store/notesStore');
+
+function createNoteHandler(req, res) {
+  const { title, body } = req.body;
+  const notes = store.getAll();
+  const note = createNote(store.getNotes(), title, body);
+
+  if (!note) {
+    return res.status(400).json({ error: 'Title must not be empty.' });
+  }
+
+  return res.status(201).json(note);
 }
 
-function getAllNotes(req, res) {
-  res.status(501).json({ error: 'Not implemented yet' });
+function getAllNotesHandler(req, res) {
+  return res.status(200).json(store.getAll());
 }
 
-function updateNote(req, res) {
-  res.status(501).json({ error: 'Not implemented yet' });
+function updateNoteHandler(req, res) {
+  const { id } = req.params;
+  const { title, body } = req.body;
+  const notes = store.getAll();
+
+  const updated = updateNote(store.getNotes(), id, title, body);
+  if (!updated) {
+    return res.status(404).json({ error: 'Note not found.' });
+  }
+
+  return res.status(200).json(updated);
 }
 
-function deleteNote(req, res) {
-  res.status(501).json({ error: 'Not implemented yet' });
+function deleteNoteHandler(req, res) {
+  const { id } = req.params;
+  const notes = store.getAll();
+
+  const deleted = deleteNote(store.getNotes(), id);
+  if (!deleted) {
+    return res.status(404).json({ error: 'Note not found.' });
+  }
+
+  return res.status(200).json({ message: 'Note deleted successfully.' });
 }
 
-module.exports = { createNote, getAllNotes, updateNote, deleteNote };
+module.exports = { createNoteHandler, getAllNotesHandler, updateNoteHandler, deleteNoteHandler };

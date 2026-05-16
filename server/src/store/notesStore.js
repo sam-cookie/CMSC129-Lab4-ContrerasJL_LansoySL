@@ -1,7 +1,7 @@
 let notes = [];
 
 module.exports = {
-  add: (note) => notes.push(note),
-  getAll: () => [...notes],
+  getNotes: () => notes,      // returns real array reference
+  getAll: () => [...notes],   // returns copy for reading
   reset: () => { notes = []; },
 };
