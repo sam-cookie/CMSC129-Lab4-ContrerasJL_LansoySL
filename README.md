@@ -4,7 +4,7 @@
 
   ## Live URL
 
-  > _To be added after deployment_
+[https://cmsc-129-lab4-contreras-jl-lansoy-s.vercel.app/](https://cmsc-129-lab4-contreras-jl-lansoy-s.vercel.app/)
 
   ---
 
