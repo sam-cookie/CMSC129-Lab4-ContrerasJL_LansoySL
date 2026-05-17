@@ -25,25 +25,30 @@ function App() {
     <div>
       <h1>Notes App</h1>
 
-      <input
-        data-testid="note-title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Title"
-      />
-      <input
-        data-testid="note-body"
-        value={body}
-        onChange={(e) => setBody(e.target.value)}
-        placeholder="Body"
-      />
-      <button data-testid="submit-note" onClick={handleSubmit}>
-        Add Note
-      </button>
+      <div className="form">
+        <input
+          data-testid="note-title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Title"
+        />
+        <input
+          data-testid="note-body"
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+          placeholder="Body"
+        />
+        <button data-testid="submit-note" onClick={handleSubmit}>
+          Add Note
+        </button>
+      </div>
 
-      <div data-testid="note-list" style={{ display: 'block', minHeight: '1px' }}>
+      <div data-testid="note-list" className="note-list">
+        {notes.length === 0 && (
+          <p style={{ color: '#999', fontSize: '14px' }}>No notes yet.</p>
+        )}
         {notes.map((note) => (
-          <div key={note.id}>
+          <div key={note.id} className="note-card">
             <span>{note.title}</span>
             <button
               data-testid="delete-note"
