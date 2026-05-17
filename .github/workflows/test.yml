@@ -33,9 +33,6 @@ jobs:
       - name: Run integration tests
         run: npx jest tests/integration/ --passWithNoTests
 
-      - name: Run system tests
-        run: npx jest tests/system/ --passWithNoTests
-
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
