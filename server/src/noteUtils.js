@@ -29,10 +29,10 @@ function updateNote(notes, id, title, body) {
 }
 
 function deleteNote(notes, id) {
-  const index = notes.findIndex(n => n.id === id);
-  if (index === -1) return false;
-  notes.splice(index, 1);
-  return true;
+  // const index = notes.findIndex(n => n.id === id);
+  // if (index === -1) return false;
+  // notes.splice(index, 1);
+  // return true;
 }
 
 module.exports = { createNote, getNotes, updateNote, deleteNote };
